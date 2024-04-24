@@ -19,8 +19,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract folder name
         run: |
-          added="${{ steps.abc.outputs.added }}"
-          folder=$(echo "$added" | awk -F/ '{print $2}' | sort -u)
+          added_modified="${{ steps.abc.outputs.added_modified }}"
+          folder=$(echo "added_modified" | awk -F/ '{print $2}' | sort -u)
           echo "FOLDER_NAME=$folder" >> $GITHUB_ENV
       - name: Print folder name
         run: |
